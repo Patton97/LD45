@@ -11,7 +11,7 @@ public class Plug : Interactable
 
         base.Start();//god this is ugly
         sink = GetComponentInParent<Sink>();
-        hoverPrompt = "Pull Plug";
+        prompt = "Pull Plug";
     }
 
     void FixedUpdate()

@@ -16,8 +16,8 @@ public class Drawer : Interactable
         openPos = transform.localPosition + new Vector3(-0.5f, 0, 0);
         shutPos = transform.localPosition;
 
-        if (open) { hoverPrompt = "Close Drawer"; }
-        else { hoverPrompt = "Open Drawer"; }
+        if (open) { prompt = "Close Drawer"; }
+        else { prompt = "Open Drawer"; }
     }
 
     void FixedUpdate()
@@ -35,7 +35,7 @@ public class Drawer : Interactable
     public override void Interact()
     {
         open = !open;
-        if (open) { hoverPrompt = "Close Drawer"; }
-        else { hoverPrompt = "Open Drawer"; }
+        if (open) { prompt = "Close Drawer"; }
+        else { prompt = "Open Drawer"; }
     }
 }

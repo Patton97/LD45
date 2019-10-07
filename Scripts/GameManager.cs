@@ -12,19 +12,11 @@ public class GameManager : MonoBehaviour
     }
 
     //Really can't decide whether to capitalise these or not
-    public static CharacterController CurrentCharacter;
-
+    public static PlayerController Player;
 
     void Awake()
     {
         SetInstance();
-        FindCharacterController();
+        Player = FindObjectOfType<PlayerController>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    void FindCharacterController() => CurrentCharacter = FindObjectOfType<CharacterController>();
 }

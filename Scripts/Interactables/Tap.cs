@@ -5,38 +5,33 @@ using UnityEngine;
 public class Tap : Interactable
 {
     bool on = false;
-    float speed = 2.0f;
-    [SerializeField] bool hot = false;
     [SerializeField] Sink sink;
 
     private new void Start()
     {
         base.Start();//god this is ugly
         if (sink == null) { sink = GetComponentInParent<Sink>(); }
-        hoverPrompt = "Turn On";
-    }
-
-    void FixedUpdate()
-    {
+        UpdateTap();
     }
 
     public override void Interact()
     {
         on = !on;
-        if(on) { TurnOn(); } else { TurnOff();  }
+        UpdateTap();
         transform.Rotate(Vector3.up, 45f);
     }
 
-    void TurnOn()
+    void UpdateTap()
     {
-        hoverPrompt = "Turn Off";
-        sink.TapsOn();
-
-    }
-
-    void TurnOff()
-    {
-        hoverPrompt = "Turn On";
-        sink.TapsOff();
+        if(on)
+        {
+            prompt = "Turn On";
+            sink.TapsOn();
+        }
+        else
+        {
+            prompt = "Turn On";
+            sink.TapsOff();
+        }
     }
 }

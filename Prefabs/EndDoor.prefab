@@ -168,8 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myKeyObj: {fileID: 0}
-  KeyPrefab: {fileID: 3324898879825516736, guid: 577fa9f5be5712e4abe784f1992f7ca4,
-    type: 3}
+  KeyPrefab: {fileID: 100002, guid: 752e3d8c1787f6b418aeede1ea83e32e, type: 3}
 --- !u!65 &6460100038721751095
 BoxCollider:
   m_ObjectHideFlags: 0

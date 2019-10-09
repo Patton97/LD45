@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 99dfea01b7ab2234eac24a6059eb8a18, type: 3}
+  itemName: 
 --- !u!65 &1251130273775431190
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66,10 +67,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6190101811190533869}
     m_Modifications:
-    - target: {fileID: 100002, guid: 752e3d8c1787f6b418aeede1ea83e32e, type: 3}
-      propertyPath: m_Name
-      value: key
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 752e3d8c1787f6b418aeede1ea83e32e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -113,6 +110,10 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 752e3d8c1787f6b418aeede1ea83e32e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 752e3d8c1787f6b418aeede1ea83e32e, type: 3}
+      propertyPath: m_Name
+      value: key
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 752e3d8c1787f6b418aeede1ea83e32e, type: 3}

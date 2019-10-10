@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeySlot : Interactable
+public class KeySlot : Container
 {
     public Key myKey { get; protected set; }
     public GameObject myKeyObj;

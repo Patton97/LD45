@@ -4,48 +4,35 @@ using UnityEngine;
 
 public class Wardrobe : Interactable
 {
-    bool locked = true;
+    [SerializeField] List<Door> doors = new List<Door>();
+    [SerializeField] List<Container> containers = new List<Container>();
     [SerializeField] string correctSequence = "0123456";
-    [SerializeField] List<BlockSlot> mySlots = new List<BlockSlot>();
-    [SerializeField] Door leftDoor, rightDoor;
+    bool locked = true;
 
-    new void Start()
-    {
-        base.Start();
-        prompt = "Locked";
-    }
-
-    private void Update()
+    void Update()
     {
         if(SequenceCorrect())
         {
-            leftDoor.locked = false;
-            leftDoor.UpdatePrompt();
-            rightDoor.locked = false;
-            rightDoor.UpdatePrompt();
+            foreach(Door door in doors)
+            {
+                door.locked = false;
+                door.UpdatePrompt();
+            }
         }
     }
 
-    public override void Interact()
-    {
-        //NOTHING
-    }
+    public override void Interact() {/*NOTHING*/}
 
     bool SequenceCorrect()
     {
-        return GetCurrentSequence() == correctSequence;
-    }
-
-    string GetCurrentSequence()
-    {
         string currentSequence = "";
-        foreach (BlockSlot slot in mySlots)
+        foreach (Container container in containers)
         {
-            if(slot.myBlock!=null)
+            if(container.item!=null)
             {
-                currentSequence += slot.myBlock.GetTypeNum();
+                currentSequence += ((ColouredBlock)container.item).GetTypeValue();
             }            
-        }
-        return currentSequence;
+        }        
+        return currentSequence == correctSequence;
     }
 }

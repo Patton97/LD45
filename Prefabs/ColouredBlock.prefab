@@ -45,9 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da8181cbb2770241b63803d89c80cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
-  myType: 0
-  blockTypes:
+  name: 
+  sprite: {fileID: 0}
+  model: {fileID: 0}
+  type: 0
+  models:
   - {fileID: 100000, guid: 33b3fff0f5d91a940b5511611d1445d1, type: 3}
   - {fileID: 100000, guid: c7e5d3312171e784f8cf2f2a663da0d8, type: 3}
   - {fileID: 100000, guid: a31a47c0bcd5e4a499fc887c305a11dd, type: 3}
@@ -55,7 +57,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: f8f64d9981f7eb047965248c2fd9e98e, type: 3}
   - {fileID: 100000, guid: 9f5ccb71c62e79a49a6076ac80932044, type: 3}
   - {fileID: 100000, guid: b0978f727e9ec72419d384d4f40299cd, type: 3}
-  blockSprites:
+  sprites:
   - {fileID: 21300000, guid: 9a19513942afc234c96ffb4f60a213ba, type: 3}
   - {fileID: 21300000, guid: d0605fa46d5d7834e888f627801570c8, type: 3}
   - {fileID: 21300000, guid: 7f5a86d1a0ecbfd4c92328b958544b84, type: 3}
@@ -63,8 +65,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e44d797fd58ad0a45a2d567c51633154, type: 3}
   - {fileID: 21300000, guid: 81c094c665cfaca42b637e4d02a2564d, type: 3}
   - {fileID: 21300000, guid: 326bc46564bed5e419584685cca16c4f, type: 3}
-  blockObject: {fileID: 8919749745765447725}
-  _isInteractive: 0
 --- !u!65 &4022238057870265952
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -135,12 +135,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33b3fff0f5d91a940b5511611d1445d1, type: 3}
---- !u!1 &8919749745765447725 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 33b3fff0f5d91a940b5511611d1445d1,
-    type: 3}
-  m_PrefabInstance: {fileID: 8919749745765482125}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8919749745765606413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 33b3fff0f5d91a940b5511611d1445d1,

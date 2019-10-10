@@ -9,10 +9,11 @@ public abstract class Interactable : MonoBehaviour
 
     public void Start()
     {
-        base.name = name;
+        //base.name = name;
+        prompt = name;
     }
 
     public abstract void Interact();
 
-    public string Prompt => "Interact";
+    public string Prompt => prompt;
 }

@@ -1,37 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 public class ColouredBlock : Item
 {
-    private enum Type : byte { WhiteG = 0, YellowB, CyanE, GreenA, PurpleD, RedF, BlueC }
-    [SerializeField] Type myType;
-    [SerializeField] public List<GameObject> blockTypes = new List<GameObject>();
-    [SerializeField] List<Sprite> blockSprites = new List<Sprite>();
-    [SerializeField] GameObject blockObject;
+    private enum BlockType : byte { WhiteG = 0, YellowB, CyanE, GreenA, PurpleD, RedF, BlueC }
+    [SerializeField] BlockType type;
+    [SerializeField] public List<GameObject> models = new List<GameObject>();
+    [SerializeField] List<Sprite> sprites = new List<Sprite>();
+    [SerializeField] public GameObject blockObject { get; protected set; }
 
     // Start is called before the first frame update
     private new void Start()
     {
         base.Start();
-        UpdateBlock();//ensure correct model is showing
-        if (sprite == null) { sprite = blockSprites[(byte)myType]; }
+        sprite = sprites[(byte)type];
+        model  =  models[(byte)type];
+        UpdateModel();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void UpdateBlock()
+    //ensure correct model is showing
+    public void UpdateModel()
     {
         //Change object (model)
         DestroyImmediate(blockObject);
-        blockObject = Instantiate(blockTypes[(byte)myType]);
+        blockObject = Instantiate(model);
 
         //Reattach & reset transforms
         blockObject.transform.parent = gameObject.transform;
@@ -40,5 +33,8 @@ public class ColouredBlock : Item
         blockObject.transform.localScale = Vector3.one;
     }
 
-    public byte GetTypeNum() => (byte)myType;
+    //Kinda dumb
+    public byte GetTypeValue() => (byte)type;
+
+
 }

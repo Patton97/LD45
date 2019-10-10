@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7632779521434995346}
   - component: {fileID: 8326960842525192761}
   - component: {fileID: 3639601717870654703}
-  - component: {fileID: 2874943038510322439}
+  - component: {fileID: 1765099422655789354}
   m_Layer: 0
   m_Name: BlockSlot
   m_TagString: Untagged
@@ -92,7 +92,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2874943038510322439
+--- !u!114 &1765099422655789354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,15 +101,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3310063006857558736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30be99175f178954c8987feb653c56ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 829c0a4f8a7c0c3488b65ee6089dab40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBlockObj: {fileID: 0}
-  blockPrefabs:
-  - {fileID: 100000, guid: 33b3fff0f5d91a940b5511611d1445d1, type: 3}
-  - {fileID: 100000, guid: c7e5d3312171e784f8cf2f2a663da0d8, type: 3}
-  - {fileID: 100000, guid: a31a47c0bcd5e4a499fc887c305a11dd, type: 3}
-  - {fileID: 100000, guid: 8734b57d4852c0b40935382458492a7d, type: 3}
-  - {fileID: 100000, guid: f8f64d9981f7eb047965248c2fd9e98e, type: 3}
-  - {fileID: 100000, guid: 9f5ccb71c62e79a49a6076ac80932044, type: 3}
-  - {fileID: 100000, guid: b0978f727e9ec72419d384d4f40299cd, type: 3}
+  name: Block Holder
+  acceptedTypes:
+  - {fileID: 6179433584686872880, guid: 5522919bca9669a48a1e0ef55da06c03, type: 3}
+  item: {fileID: 0}
+  itemPosition: {x: 0, y: 0, z: 0}
+  itemRotation: {x: 0, y: 0, z: 0}
+  itemScale: {x: 0, y: 0, z: 0}

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class EndDoor : Interactable
 {
-    [SerializeField] List<KeySlot> myKeys = new List<KeySlot>();
-    private bool locked = true;
+    [SerializeField] List<Container> containers = new List<Container>();
+    bool locked = true;
 
-    private new void Start()
+    new void Start()
     {
         base.Start();
         UpdatePrompt();
     }
 
-    private void Update()
+    void Update()
     {
         if (KeysComplete())
         {
@@ -21,6 +21,7 @@ public class EndDoor : Interactable
             UpdatePrompt();
         }
     }
+
     public override void Interact()
     {
         if(!locked)
@@ -44,9 +45,9 @@ public class EndDoor : Interactable
     bool KeysComplete()
     {
         bool temp = true;//assume no
-        foreach (KeySlot slot in myKeys)
+        foreach (Container container in containers)
         {
-            if (slot.myKey == null)
+            if (container.item == null)
             {
                 temp = false;
             }

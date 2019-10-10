@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class BlockSlot : Interactable
+/*
+public class BlockSlot : Container
 {
     public ColouredBlock myBlock { get; protected set; }
     public GameObject myBlockObj;
     [SerializeField] public List<GameObject> blockPrefabs = new List<GameObject>();
+
     new void Start()
     {
         base.Start();
@@ -16,29 +17,29 @@ public class BlockSlot : Interactable
     public override void Interact()
     {
         //If no block in slot
-        if (myBlock == null)
+        if (item == null)
         {
             //if player is holding a block
             //Fail first ftw
-            Item item = GameManager.Player.GetCurrentItem();
-            if (item != null && item.GetComponent<ColouredBlock>() != null)
+            Item playerItem = GameManager.Player.GetCurrentItem();
+            if (playerItem != null && playerItem.GetComponent<ColouredBlock>() != null)
             {
-                myBlock = GameManager.Player.GetCurrentItem().GetComponent<ColouredBlock>();
-                GameManager.Player.InventoryRemove(myBlock);
+                item = GameManager.Player.GetCurrentItem().GetComponent<ColouredBlock>();
+                GameManager.Player.InventoryRemove(item);
             }
         }
         else //If block already present
         {
-            GameManager.Player.InventoryAdd(myBlock);
-            myBlock = null;
+            GameManager.Player.InventoryAdd(item);
+            item = null;
         }
 
 
-        UpdateBlock();
+        UpdateObject();
 
 
         //After interaction
-        if (myBlock == null)
+        if (item == null)
         {
             prompt = "Place in slot";
         }
@@ -49,8 +50,12 @@ public class BlockSlot : Interactable
 
     }
 
-    void UpdateBlock()
+    new void UpdateObject()
     {
+        base.UpdateObject();
+        displayObject.transform.localScale *= 1.1f;
+
+        /*
         DestroyImmediate(myBlockObj);
 
         if(myBlock != null)
@@ -60,6 +65,8 @@ public class BlockSlot : Interactable
             myBlockObj.transform.localPosition = Vector3.zero;
             myBlockObj.transform.localRotation = Quaternion.identity;
             myBlockObj.transform.localScale = Vector3.one * 1.1f;
-        }        
+        }
+          
     }    
 }
+*/

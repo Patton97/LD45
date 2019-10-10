@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item : Interactable
 {
     [SerializeField] public Sprite sprite;
-    [SerializeField] GameObject prefab;
+    [SerializeField] protected GameObject model;
 
     new void Start()
     {
@@ -20,4 +20,5 @@ public class Item : Interactable
     }
 
     public string Prompt => "Pick up " + name;
+    public GameObject Model => model;
 }

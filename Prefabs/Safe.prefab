@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &6388715136265986145
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307085548102154680}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8, y: 1.8, z: 0.1}
+  m_Center: {x: 0, y: 0, z: -0.05}
 --- !u!1 &952557620820684970
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,6 +23,11 @@ GameObject:
   m_Component:
   - component: {fileID: 244859915434550652}
   - component: {fileID: 1666562161314331754}
+  - component: {fileID: 2154986018547596163}
+  - component: {fileID: 7369501583345965630}
+  - component: {fileID: 1136729404701734311}
+  - component: {fileID: 524274412079632700}
+  - component: {fileID: 7062111828899839510}
   m_Layer: 0
   m_Name: Safe
   m_TagString: Untagged
@@ -52,6 +70,71 @@ MonoBehaviour:
   - {fileID: 11047929659895589}
   correctSequence: 2819
   door: {fileID: 2296961318222739791}
+--- !u!65 &2154986018547596163
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952557620820684970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 2, z: 1.8}
+  m_Center: {x: -0.95, y: 0, z: -0.1}
+--- !u!65 &7369501583345965630
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952557620820684970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 2, z: 1.8}
+  m_Center: {x: 0.95, y: 0, z: -0.1}
+--- !u!65 &1136729404701734311
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952557620820684970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 0.1}
+  m_Center: {x: 0, y: 0, z: -0.95}
+--- !u!65 &524274412079632700
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952557620820684970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.1, z: 1.8}
+  m_Center: {x: 0, y: -0.95, z: -0.05}
+--- !u!65 &7062111828899839510
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952557620820684970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.1, z: 1.8}
+  m_Center: {x: 0, y: 0.95, z: -0.05}
 --- !u!1 &8540139608586038599
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +281,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SafeDial 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6133697162272283879, guid: 4842532d5fd19474081dbe4dbf3ade57,
+        type: 3}
+      propertyPath: safe
+      value: 
+      objectReference: {fileID: 1666562161314331754}
     - target: {fileID: 3108834634415791046, guid: 4842532d5fd19474081dbe4dbf3ade57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -253,11 +341,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6133697162272283879, guid: 4842532d5fd19474081dbe4dbf3ade57,
+    - target: {fileID: 6041202460263717685, guid: 4842532d5fd19474081dbe4dbf3ade57,
         type: 3}
-      propertyPath: safe
+      propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1666562161314331754}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4842532d5fd19474081dbe4dbf3ade57, type: 3}
 --- !u!114 &6639785783014194182 stripped
@@ -284,6 +372,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SafeDial 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6133697162272283879, guid: 4842532d5fd19474081dbe4dbf3ade57,
+        type: 3}
+      propertyPath: safe
+      value: 
+      objectReference: {fileID: 1666562161314331754}
     - target: {fileID: 3108834634415791046, guid: 4842532d5fd19474081dbe4dbf3ade57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -339,11 +432,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6133697162272283879, guid: 4842532d5fd19474081dbe4dbf3ade57,
+    - target: {fileID: 6041202460263717685, guid: 4842532d5fd19474081dbe4dbf3ade57,
         type: 3}
-      propertyPath: safe
+      propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1666562161314331754}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4842532d5fd19474081dbe4dbf3ade57, type: 3}
 --- !u!114 &6535810171467942377 stripped
@@ -433,6 +526,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SafeDial 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6133697162272283879, guid: 4842532d5fd19474081dbe4dbf3ade57,
+        type: 3}
+      propertyPath: safe
+      value: 
+      objectReference: {fileID: 1666562161314331754}
     - target: {fileID: 3108834634415791046, guid: 4842532d5fd19474081dbe4dbf3ade57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -488,11 +586,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6133697162272283879, guid: 4842532d5fd19474081dbe4dbf3ade57,
+    - target: {fileID: 6041202460263717685, guid: 4842532d5fd19474081dbe4dbf3ade57,
         type: 3}
-      propertyPath: safe
+      propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1666562161314331754}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4842532d5fd19474081dbe4dbf3ade57, type: 3}
 --- !u!114 &11047929659895589 stripped
@@ -519,6 +617,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SafeDial 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6133697162272283879, guid: 4842532d5fd19474081dbe4dbf3ade57,
+        type: 3}
+      propertyPath: safe
+      value: 
+      objectReference: {fileID: 1666562161314331754}
     - target: {fileID: 3108834634415791046, guid: 4842532d5fd19474081dbe4dbf3ade57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -574,11 +677,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6133697162272283879, guid: 4842532d5fd19474081dbe4dbf3ade57,
+    - target: {fileID: 6041202460263717685, guid: 4842532d5fd19474081dbe4dbf3ade57,
         type: 3}
-      propertyPath: safe
+      propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1666562161314331754}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4842532d5fd19474081dbe4dbf3ade57, type: 3}
 --- !u!114 &2789160572544435918 stripped

@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class LightSwitch : Interactable
 {
-    [SerializeField] List<Light> lights;
     [SerializeField] GameObject switchOn, switchOff;
     [SerializeField] GameObject model;
+    
+    //These can be moved to a Room.cs for better ownership structure
+    [SerializeField] List<Light> lights;
+    [SerializeField] List<GlowInTheDark> glowInTheDarks;
+    
     bool on = true;
     // Start is called before the first frame update
     new void Start()
@@ -26,7 +30,7 @@ public class LightSwitch : Interactable
         //Update relevant variables/flags
         on = !on;
         RenderSettings.fog = !on; //If lights are on, fog is off
-        prompt = on ? "Turn Off" : "Turn On";
+        
 
         //Update all connected lights
         foreach(Light light in lights)
@@ -34,14 +38,14 @@ public class LightSwitch : Interactable
             light.enabled = on;
         }
 
-
         //Update all gitd objects
-        foreach (GlowInTheDark thing in FindObjectsOfType<GlowInTheDark>())
+        foreach (GlowInTheDark thing in glowInTheDarks)
         {
             thing.gameObject.GetComponent<MeshRenderer>().enabled = !on; //If lights are on, gitd are off
         }
 
         UpdateModel();
+        UpdatePrompt();
     }
 
     void UpdateModel()
@@ -54,12 +58,8 @@ public class LightSwitch : Interactable
         model.transform.localScale = Vector3.one;
     }
 
-    //Because lightswitch is rendered based on play variables
-    void OnDrawGizmos()
+    void UpdatePrompt()
     {
-        Vector3 offset = new Vector3(0.025f, 0.025f);
-        Vector3 scale = new Vector3(.5f, .7f, .2f);
-        Gizmos.color = Color.grey;
-        Gizmos.DrawCube(gameObject.transform.position + offset, Vector3.Scale(gameObject.transform.lossyScale, scale));
+        prompt = on ? "Turn Off" : "Turn On";
     }
 }

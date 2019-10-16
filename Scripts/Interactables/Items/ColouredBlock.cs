@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColouredBlock : Item
 {
-    private enum BlockType : byte { WhiteG = 0, YellowB, CyanE, GreenA, PurpleD, RedF, BlueC }
+    public enum BlockType : byte { WhiteG = 0, YellowB, CyanE, GreenA, PurpleD, RedF, BlueC }
     [SerializeField] BlockType type;
     [SerializeField] public List<GameObject> models = new List<GameObject>();
     [SerializeField] List<Sprite> sprites = new List<Sprite>();

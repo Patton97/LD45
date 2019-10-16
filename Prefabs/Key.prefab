@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 99dfea01b7ab2234eac24a6059eb8a18, type: 3}
-  itemName: 
+  model: {fileID: 100002, guid: 752e3d8c1787f6b418aeede1ea83e32e, type: 3}
 --- !u!65 &1251130273775431190
 BoxCollider:
   m_ObjectHideFlags: 0

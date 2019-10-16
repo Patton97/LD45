@@ -1,17 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Container : Interactable
 {
     [SerializeField] List<Item> acceptedItems = new List<Item>();
-    [SerializeField] public Item item;
+    public Item itemScript { get; private set; }
     GameObject itemModel;
 
     [Header("Stored Item Transform")]
     [SerializeField] Vector3 itemPosition = Vector3.zero;
     [SerializeField] Vector3 itemRotation = Vector3.zero;
-    [SerializeField] Vector3 itemScale = Vector3.zero;
+    [SerializeField] Vector3 itemScale = Vector3.one;
+
+    [Header("Puzzle - Not Required")]
+    [SerializeField] ColouredBlockPuzzle puzzle;
 
             
     new void Start()
@@ -33,24 +37,17 @@ public class Container : Interactable
     void UpdateItem()
     {
         //If no item in slot
-        if (item == null)
+        if (itemScript == null)
         {
-            //If player is holding an ACCEPTED item
-            Item newItem = GameManager.Player.GetCurrentItem().GetComponent<Item>();
-            if (newItem != null && acceptedItems.Contains(newItem))
-            {      
-                GameManager.Player.InventoryRemove(newItem);
-            }
-            else
-            {
-                Debug.Log("acceptedItems: " + acceptedItems[0]);
-            }
+            //Could move this NRE check to PlayerController
+            //I would debug the NRE but this is just a fancy if
+            try { AddItem(GameManager.Player.GetCurrentItem().GetComponent<Item>()); } catch { } 
         }
         //If item already in slot
         else
         {
-            GameManager.Player.InventoryAdd(item);
-            item = null;
+            GameManager.Player.InventoryAdd(itemScript);
+            itemScript = null;
         }
     }
 
@@ -58,13 +55,13 @@ public class Container : Interactable
     //      to provide faux container physicalisation
     protected void UpdateModel()
     {
-        if(item == null)
+        if(itemScript == null)
         {
             DestroyImmediate(itemModel);
         }
         else
         {
-            itemModel = Instantiate(item.Model);
+            itemModel = Instantiate(itemScript.Model);
             itemModel.transform.parent = gameObject.transform;
             itemModel.transform.localPosition = itemPosition;
             itemModel.transform.localRotation = Quaternion.Euler(itemRotation);
@@ -74,6 +71,27 @@ public class Container : Interactable
     
     protected void UpdatePrompt()
     {
-        prompt = item == null ? "Place in slot" : "Remove from slot";
+        prompt = itemScript == null ? "Place in slot" : "Remove from slot";
+    }
+
+    private void AddItem(Item newItem)
+    {
+        //If player is holding an ACCEPTED item
+        foreach (Item item in acceptedItems)
+        {
+            if (item.GetType() == newItem.GetType())
+            {
+                itemScript = newItem;
+                GameManager.Player.InventoryRemove(newItem);
+            }
+        }
+        PuzzleCompleted();
+    }
+
+    public bool PuzzleCompleted()
+    {
+        //If no puzzle assigned, assume completed
+        try   { return puzzle.CheckPuzzle(itemScript); }
+        catch { return true; }
     }
 }

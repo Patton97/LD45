@@ -47,7 +47,7 @@ public class EndDoor : Interactable
         bool temp = true;//assume no
         foreach (Container container in containers)
         {
-            if (container.item == null)
+            if (container.itemScript == null)
             {
                 temp = false;
             }

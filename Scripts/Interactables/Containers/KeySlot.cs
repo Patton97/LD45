@@ -32,38 +32,6 @@ public class KeySlot : Container
             myKey = null;
         }
 
-        UpdateKey();
-
-        //After interaction
-        if (myKey == null)
-        {
-            prompt = "Place in slot";
-        }
-        else
-        {
-            prompt = "Remove from slot";
-        }
-
+        UpdateModel();
     }
-
-    void UpdateKey()
-    {
-        DestroyImmediate(myKeyObj);
-
-        if (myKey != null)
-        {
-            myKeyObj = Instantiate(KeyPrefab);
-            DestroyImmediate(myKeyObj.GetComponent<Key>());
-            DestroyImmediate(myKeyObj.GetComponent<BoxCollider>());
-            myKeyObj.transform.parent = gameObject.transform;
-            myKeyObj.transform.localPosition = Vector3.zero;
-            myKeyObj.transform.localRotation = Quaternion.identity;
-            myKeyObj.transform.Rotate(new Vector3(0, 90f, 0));
-            myKeyObj.transform.localScale = Vector3.one * 0.2f;
-        }
-
-
-    }
-
-
 }

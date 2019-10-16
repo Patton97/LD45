@@ -6,7 +6,6 @@ public class Wardrobe : Interactable
 {
     [SerializeField] List<Door> doors = new List<Door>();
     [SerializeField] List<Container> containers = new List<Container>();
-    [SerializeField] string correctSequence = "0123456";
     bool locked = true;
 
     void Update()
@@ -25,14 +24,14 @@ public class Wardrobe : Interactable
 
     bool SequenceCorrect()
     {
-        string currentSequence = "";
         foreach (Container container in containers)
         {
-            if(container.item!=null)
+            if(!container.PuzzleCompleted())
             {
-                currentSequence += ((ColouredBlock)container.item).GetTypeValue();
+                return false;
             }            
-        }        
-        return currentSequence == correctSequence;
+        }
+        //If this point is reached, all puzzles were completed
+        return true;
     }
 }

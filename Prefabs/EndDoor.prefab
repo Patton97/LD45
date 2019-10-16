@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3803746182649567920}
   - component: {fileID: 1152500958943644689}
+  - component: {fileID: 4552241682859389401}
   m_Layer: 0
   m_Name: BottomSlot
   m_TagString: Untagged
@@ -44,6 +45,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4552241682859389401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578704743630885325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829c0a4f8a7c0c3488b65ee6089dab40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acceptedItems:
+  - {fileID: 2482543323632366686, guid: 577fa9f5be5712e4abe784f1992f7ca4, type: 3}
+  item: {fileID: 0}
+  itemPosition: {x: 0, y: 0, z: 0}
+  itemRotation: {x: 0, y: 0, z: 0}
+  itemScale: {x: 0, y: 0, z: 0}
 --- !u!1 &4680178984306219200
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,10 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f7d48afa68c4d418dd795f234ebecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
-  myKeys:
-  - {fileID: 0}
-  - {fileID: 0}
+  containers:
+  - {fileID: 8104672369041478115}
+  - {fileID: 4552241682859389401}
 --- !u!65 &4516667017248754584
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -118,6 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6806775672421084843}
   - component: {fileID: 6460100038721751095}
+  - component: {fileID: 8104672369041478115}
   m_Layer: 0
   m_Name: TopSlot
   m_TagString: Untagged
@@ -152,6 +171,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8104672369041478115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7476462548920101865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829c0a4f8a7c0c3488b65ee6089dab40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acceptedItems:
+  - {fileID: 2482543323632366686, guid: 577fa9f5be5712e4abe784f1992f7ca4, type: 3}
+  item: {fileID: 0}
+  itemPosition: {x: 0, y: 0, z: 0}
+  itemRotation: {x: 0, y: 0, z: 0}
+  itemScale: {x: 0, y: 0, z: 0}
 --- !u!1001 &3521351503761747522
 PrefabInstance:
   m_ObjectHideFlags: 0

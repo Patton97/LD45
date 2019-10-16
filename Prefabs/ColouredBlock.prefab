@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da8181cbb2770241b63803d89c80cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
   sprite: {fileID: 0}
   model: {fileID: 0}
   type: 0
@@ -65,6 +64,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e44d797fd58ad0a45a2d567c51633154, type: 3}
   - {fileID: 21300000, guid: 81c094c665cfaca42b637e4d02a2564d, type: 3}
   - {fileID: 21300000, guid: 326bc46564bed5e419584685cca16c4f, type: 3}
+  blockObject: {fileID: 8919749745765447725}
 --- !u!65 &4022238057870265952
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -135,6 +135,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33b3fff0f5d91a940b5511611d1445d1, type: 3}
+--- !u!1 &8919749745765447725 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 33b3fff0f5d91a940b5511611d1445d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8919749745765482125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8919749745765606413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 33b3fff0f5d91a940b5511611d1445d1,

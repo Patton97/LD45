@@ -41,6 +41,10 @@ public class Container : Interactable
             {      
                 GameManager.Player.InventoryRemove(newItem);
             }
+            else
+            {
+                Debug.Log("acceptedItems: " + acceptedItems[0]);
+            }
         }
         //If item already in slot
         else

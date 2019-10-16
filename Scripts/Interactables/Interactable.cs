@@ -4,12 +4,10 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    [SerializeField] new string name;
     public string prompt { get; protected set; }
 
     public void Start()
     {
-        //base.name = name;
         prompt = name;
     }
 

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class LightSwitch : Interactable
 {
-    [SerializeField] List<Light> connectedLights;
+    [SerializeField] List<Light> lights;
     [SerializeField] GameObject switchOn, switchOff;
-    GameObject switchModel;
+    [SerializeField] GameObject model;
     bool on = true;
     // Start is called before the first frame update
     new void Start()
     {
         base.Start();
-        UpdateSwitchModel();
+        UpdateModel();
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class LightSwitch : Interactable
         prompt = on ? "Turn Off" : "Turn On";
 
         //Update all connected lights
-        foreach(Light light in connectedLights)
+        foreach(Light light in lights)
         {
             light.enabled = on;
         }
@@ -41,17 +41,17 @@ public class LightSwitch : Interactable
             thing.gameObject.GetComponent<MeshRenderer>().enabled = !on; //If lights are on, gitd are off
         }
 
-        UpdateSwitchModel();
+        UpdateModel();
     }
 
-    void UpdateSwitchModel()
+    void UpdateModel()
     {
-        DestroyImmediate(switchModel);
-        switchModel = on ? Instantiate(switchOn) : Instantiate(switchOff);
-        switchModel.transform.parent = gameObject.transform;
-        switchModel.transform.localPosition = Vector3.zero;
-        switchModel.transform.localRotation = Quaternion.identity;
-        switchModel.transform.localScale = Vector3.one;
+        DestroyImmediate(model);
+        model = on ? Instantiate(switchOn) : Instantiate(switchOff);
+        model.transform.parent = gameObject.transform;
+        model.transform.localPosition = Vector3.zero;
+        model.transform.localRotation = Quaternion.identity;
+        model.transform.localScale = Vector3.one;
     }
 
     //Because lightswitch is rendered based on play variables

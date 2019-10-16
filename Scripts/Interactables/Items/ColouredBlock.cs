@@ -8,7 +8,7 @@ public class ColouredBlock : Item
     [SerializeField] BlockType type;
     [SerializeField] public List<GameObject> models = new List<GameObject>();
     [SerializeField] List<Sprite> sprites = new List<Sprite>();
-    [SerializeField] public GameObject blockObject { get; protected set; }
+    [SerializeField] GameObject blockObject;
 
     // Start is called before the first frame update
     private new void Start()

@@ -30,11 +30,9 @@ public class ColouredBlock : Item
         blockObject.transform.parent = gameObject.transform;
         blockObject.transform.localPosition = Vector3.zero;
         blockObject.transform.localRotation = Quaternion.identity;
-        blockObject.transform.localScale = Vector3.one;
+        blockObject.transform.localScale = Vector3.one * 1.1f;
     }
 
     //Kinda dumb
     public byte GetTypeValue() => (byte)type;
-
-
 }

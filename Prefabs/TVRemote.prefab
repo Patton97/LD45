@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695dd51cb5bee654285a8478d41499af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: ee37b48befc397a47be93110e4add0ff, type: 3}
+  customName: 
+  sprite: {fileID: 21300000, guid: 5ce89fe8c4fc7994f9ec5d774a14965b, type: 3}
   model: {fileID: 0}
 --- !u!65 &2006095088068368721
 BoxCollider:

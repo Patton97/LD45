@@ -91,7 +91,7 @@ public class Container : Interactable
     public bool PuzzleCompleted()
     {
         //If no puzzle assigned, assume completed
-        try   { return puzzle.CheckPuzzle(itemScript); }
+        try   { return puzzle.CheckPuzzle(itemScript as ColouredBlock); }
         catch { return true; }
     }
 }

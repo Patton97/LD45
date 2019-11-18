@@ -136,6 +136,15 @@ public class Door : Interactable
     public void Open() => swingState = SwingState.OPENING;
     public void Close() => swingState = SwingState.CLOSING;
 
+    //NOTE: Use coroutine to open door
+    IEnumerator Test()
+    {
+        for (float ft = 1f; ft >= 0; ft -= 0.1f)
+        {
+            yield return new WaitForSeconds(.1f);
+        }
+    }
+
     //DEBUG ONLY: Draw gizmo to better visualise hinge position(s)
     void OnDrawGizmosSelected()
     {

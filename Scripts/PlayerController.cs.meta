@@ -3,7 +3,10 @@ guid: 65557ee68caa77e468547ce06e852e4a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - crosshairTexture: {fileID: 2800000, guid: ba1f1e3216ea75248af9e4883073c8b2, type: 3}
+  - hotbarSlot: {fileID: 2800000, guid: 1dcd64f46fa8bb8438410314b7fdbf01, type: 3}
+  - hotbarHighlighted: {fileID: 2800000, guid: 7752d0d58d9f07b40b402486b5c7545c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -5,9 +5,11 @@ using UnityEngine;
 public abstract class Interactable : MonoBehaviour
 {
     public string prompt { get; protected set; }
+    [SerializeField] string customName;
 
     public void Start()
     {
+        if (customName != "") { name = customName; }
         prompt = name;
     }
 

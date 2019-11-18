@@ -10,13 +10,5 @@ public class ColouredBlockPuzzle : MonoBehaviour
 
     [SerializeField] ColouredBlock.BlockType correct = ColouredBlock.BlockType.WhiteG;
 
-    public void CheckPuzzle(ColouredBlock item)
-    {
-        if (item.GetTypeValue() == (byte)correct)
-        {
-            completed = true;
-        }
-    }
-
-    public
+    public bool CheckPuzzle(ColouredBlock item) => item.GetTypeValue() == (byte)correct;
 }

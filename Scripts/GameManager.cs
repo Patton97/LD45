@@ -13,10 +13,12 @@ public class GameManager : MonoBehaviour
 
     //Really can't decide whether to capitalise these or not
     public static PlayerController Player;
+    public static PromptManager Prompt;
 
     void Awake()
     {
         SetInstance();
         Player = FindObjectOfType<PlayerController>();
+        Prompt = FindObjectOfType<PromptManager>();
     }
 }

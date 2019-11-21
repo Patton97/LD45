@@ -134,20 +134,10 @@ public class PlayerController : MonoBehaviour
     //Draw Prompt
     void GUIDrawPrompt()
     {
-        if (target == null) { return; }
-
-        //Otherwise
-        GUIStyle style = new GUIStyle();
-        style.normal.textColor = Color.white;
-        style.fontSize = 30;
-
-        float promptX = crosshairPos.x;
-        float promptY = crosshairPos.y;
-        float promptW = 100f;
-        float promptH = 20f;
-        
-        Rect promptRect = new Rect(promptX, promptY, promptW, promptH);
-        GUI.Label(promptRect, target.prompt, style);
+        if (target == null)
+            GameManager.Prompt.SetPromptText("");
+        else
+            GameManager.Prompt.SetPromptText(target.prompt);
     }
 
     //Draw Hotbar    

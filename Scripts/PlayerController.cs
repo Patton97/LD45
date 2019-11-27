@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private Interactable target;
     private List<Item> inventory = new List<Item>();
-    private int currentItem = 0;
+    private int selectedItem = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     void UpdateHotbar()
     {
-        int newSelection = currentItem;
+        int newSelection = HotbarManager.GetSelected();
         //Surely a better way
         if (Input.GetKeyDown(KeyCode.Alpha1)) { newSelection = 0; }
         if (Input.GetKeyDown(KeyCode.Alpha2)) { newSelection = 1; }
@@ -58,11 +58,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0f) { newSelection--; }
         if (Input.GetAxis("Mouse ScrollWheel") < 0f) { newSelection++; }
 
-        //Validate newSelection before updating currentItem
-        //Implements wrap-around for intuitive scroll-wheel usage
-        if (newSelection < 0) { newSelection = inventory.Count - 1; }
-        if (newSelection >= inventory.Count) { newSelection = 0; }
-        currentItem = newSelection;
+        HotbarManager.SetSelected(newSelection);
     }
 
     //NOTE: Look into the actual input system
@@ -102,21 +98,24 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && target != null) { target.Interact(); }
     }
 
-    void SetTargetInteraction(Interactable newTarget) => target = newTarget;
+    void SetTargetInteraction(Interactable newTarget)
+    {
+        target = newTarget;
+        GameManager.Prompt.SetPromptText(newTarget.prompt);
+    }
 
-    public void InventoryAdd(Item item) => inventory.Add(item);
-    public void InventoryRemove(Item item) => inventory.Remove(item);
+    public void InventoryAdd(Item item) => HotbarManager.AddItem(item);
+    public void InventoryRemove(Item item) => HotbarManager.RemoveItem(selectedItem);
     public Item GetCurrentItem()
     {
         if (inventory.Count == 0) { return null; }
-        return inventory[currentItem];
+        return inventory[selectedItem];
     }
 
     void OnGUI()
     {
         //GUIDrawCrosshair();
         GUIDrawPrompt();
-        GUIDrawHotbar();
     }
 
     //Draw Crosshair
@@ -138,31 +137,6 @@ public class PlayerController : MonoBehaviour
             GameManager.Prompt.SetPromptText("");
         else
             GameManager.Prompt.SetPromptText(target.prompt);
-    }
-
-    //Draw Hotbar    
-    Vector2 hotbarSlotPos;
-    Vector2 hotbarSlotOffset = Vector2.zero;
-    float gap = 150;
-    void GUIDrawHotbar()
-    {
-        //Initialise first slot
-        hotbarSlotPos = new Vector2((Screen.width / 2) - (gap * 0.5f), Screen.height - hotbarSlotSize.y);
-        hotbarSlotOffset = new Vector2((inventory.Count - 1) * gap * 0.5f, 0);
-
-        float i = 0;
-        foreach (Item item in inventory)
-        {
-            //Inventory slot
-            GUI.DrawTexture(new Rect(hotbarSlotPos - hotbarSlotOffset, hotbarSlotSize), i == currentItem ? hotbarHighlighted : hotbarSlot);
-
-            //Item sprite
-            GUI.DrawTexture(new Rect((hotbarSlotPos - hotbarSlotOffset + hotbarSlotSize * .25f), hotbarSlotSize * 0.5f), item.sprite.texture);
-
-            //Prep next slot
-            hotbarSlotOffset.x -= gap;
-            i++;
-        }
     }
 }
 

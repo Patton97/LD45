@@ -19,8 +19,9 @@ public class PromptManager : MonoBehaviour
     }
     #endregion
 
-    void Start()
+    void Awake()
     {
+        SetInstance();
         canvasgroup = promptContainer.GetComponent<CanvasGroup>();
     }
 

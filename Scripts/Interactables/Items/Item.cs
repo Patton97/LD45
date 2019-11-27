@@ -15,7 +15,7 @@ public class Item : Interactable
 
     public override void Interact()
     {
-        GameManager.Player.InventoryAdd(this);
+        HotbarManager.AddItem(this);
         gameObject.SetActive(false);
     }
 
